@@ -1,10 +1,14 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
 
 export default function TextInput({
-    type = 'text',
+    type = "text",
     name,
     value,
+    defaultValue,
     className,
+    variant = "primary",
+    placeholder,
+    isError,
     autoComplete,
     required,
     isFocused,
@@ -24,14 +28,13 @@ export default function TextInput({
                 type={type}
                 name={name}
                 value={value}
-                className={
-                    `border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm ` +
-                    className
-                }
+                className={`
+                    rounded-2xl bg-form-bg py-[13px] px-7 w-full input-${variant} ${className}`}
                 ref={input}
                 autoComplete={autoComplete}
                 required={required}
                 onChange={(e) => handleChange(e)}
+                placeholder={placeholder}
             />
         </div>
     );
